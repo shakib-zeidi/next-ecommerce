@@ -1,5 +1,6 @@
 import Input from "@/app/components/shared/forms/input";
 import { Form, FormikProps, withFormik } from "formik";
+import * as yup from "yup";
 
 interface RegisterFormValues {
 	name: string;
@@ -37,14 +38,15 @@ interface RegisterFormProps {
 	name?: string;
 }
 
+const RegisterFormValidationSchema = yup.object().shape({
+	name: yup.string().required().min(4),
+	email: yup.string().required().email(),
+	password: yup.string().required().min(8),
+});
+
 const RegisterForm = withFormik<RegisterFormProps, RegisterFormValues>({
-	mapPropsToValues: (props) => {
-		return {
-			name: props.name ?? "",
-			email: "",
-			password: "",
-		};
-	},
+	mapPropsToValues: (props) => ({ name: "", email: "", password: "" }),
+	validationSchema: RegisterFormValidationSchema,
 	handleSubmit: (values) => {
 		console.log(values);
 	},
