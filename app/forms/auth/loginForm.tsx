@@ -1,4 +1,4 @@
-import Input from "@/app/components/shared/forms/input";
+import Input from "@/components/shared/forms/input";
 import { Form, FormikProps, withFormik } from "formik";
 import * as yup from "yup";
 
