@@ -36,11 +36,7 @@ const InnerRegisterForm = (props: FormikProps<RegisterFormValues>) => {
 	);
 };
 
-interface RegisterFormProps {
-	name?: string;
-	email?: string;
-	password?: string;
-}
+interface RegisterFormProps {}
 
 const registerFormValidationSchema = yup.object().shape({
 	name: yup.string().required().min(4),
@@ -51,9 +47,9 @@ const registerFormValidationSchema = yup.object().shape({
 const RegisterForm = withFormik<RegisterFormProps, RegisterFormValues>({
 	mapPropsToValues: (props) => {
 		return {
-			name: props.name ?? "",
-			email: props.email ?? "",
-			password: props.password ?? "",
+			name: "",
+			email: "",
+			password: "",
 		};
 	},
 	validationSchema: registerFormValidationSchema,

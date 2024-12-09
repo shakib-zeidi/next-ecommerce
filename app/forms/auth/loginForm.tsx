@@ -31,10 +31,7 @@ const InnerLoginForm = (props: FormikProps<LoginFormValues>) => {
 	);
 };
 
-interface LoginFormProps {
-	email?: string;
-	password?: string;
-}
+interface LoginFormProps {}
 
 const loginFormValidationSchema = yup.object().shape({
 	email: yup.string().required().email(),
@@ -44,8 +41,8 @@ const loginFormValidationSchema = yup.object().shape({
 const LoginForm = withFormik<LoginFormProps, LoginFormValues>({
 	mapPropsToValues: (props) => {
 		return {
-			email: props.email ?? "",
-			password: props.password ?? "",
+			email: "",
+			password:  "",
 		};
 	},
 	validationSchema: loginFormValidationSchema,
