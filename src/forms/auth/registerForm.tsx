@@ -14,7 +14,6 @@ const InnerRegisterForm = (props: FormikProps<RegisterFormValues>) => {
 			<Input name="name" label="نام و نام خانوادگی" />
 			<Input name="email" label="آدرس ایمیل" type="email" />
 			<Input name="password" label="رمز عبور" type="password" />
-
 			<div>
 				<button
 					type="submit"
@@ -36,13 +35,11 @@ const registerFormValidationSchema = yup.object().shape({
 });
 
 const RegisterForm = withFormik<RegisterFormProps, RegisterFormValues>({
-	mapPropsToValues: (props) => {
-		return {
-			name: "",
-			email: "",
-			password: "",
-		};
-	},
+	mapPropsToValues: (props) => ({
+		name: "",
+		email: "",
+		password: "",
+	}),
 	validationSchema: registerFormValidationSchema,
 	handleSubmit: (values) => console.log(values),
 })(InnerRegisterForm);
