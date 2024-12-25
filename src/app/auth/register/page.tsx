@@ -1,7 +1,6 @@
 "use client";
 
-import Input from "@/components/shared/forms/input";
-import RegisterForm from "@/forms/auth/registerForm";
+import RegisterForm from "@/ui/forms/auth/registerForm";
 import { NextPage } from "next";
 
 const RegisterPage: NextPage = () => {
