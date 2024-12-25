@@ -2,8 +2,11 @@
 
 import LoginForm from "@/ui/forms/auth/loginForm";
 import { NextPage } from "next";
+import { useCookies } from "react-cookie";
 
 const LoginPage: NextPage = () => {
+	const [cookies, setCookie] = useCookies(['user-token'])
+
 	return (
 		<>
 			<div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -19,7 +22,7 @@ const LoginPage: NextPage = () => {
 				</div>
 
 				<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-					<LoginForm />
+					<LoginForm setCookie={setCookie} />
 				</div>
 			</div>
 		</>

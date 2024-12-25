@@ -1,26 +1,36 @@
 import InnerLoginForm from "@/components/auth/innerLoginForm";
 import { LoginFormValuesInterface } from "@/contracts/auth";
-// import callApi from "@/helpers/callApi";
+import callApi from "@/helpers/callApi";
 import { withFormik } from "formik";
 import * as yup from "yup";
 
 const loginFormValidationSchema = yup.object().shape({
-	email: yup.string().required().email(),
-	password: yup.string().required().min(8),
+    email: yup.string().required().email(),
+    password: yup.string().required().min(8),
 });
 
-interface LoginFormProps {}
+interface LoginFormProps {
+    setCookie: any;
+}
 
 const LoginForm = withFormik<LoginFormProps, LoginFormValuesInterface>({
-	mapPropsToValues: (props) => ({
-		email: "",
-		password: "",
-	}),
-	validationSchema: loginFormValidationSchema,
-	handleSubmit: (values) => {
-		console.log(values);
-		// callApi().post('/');
-	},
+    mapPropsToValues: (props) => ({
+        email: "",
+        password: "",
+    }),
+    validationSchema: loginFormValidationSchema,
+    handleSubmit: async (values, { props }) => {
+        const res = await callApi().post("/auth/login", values);
+
+        if (res.status === 200) {
+            props.setCookie("user-token", res.data.token, {
+                maxAge: 3600 * 24 * 30,
+                domain: "localhost", // در نهایت دامین خودمون رو قرار میدیم
+                path: "/",
+                sameSite: "lax",
+            });
+        }
+    },
 })(InnerLoginForm);
 
 export default LoginForm;
