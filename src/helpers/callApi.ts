@@ -1,3 +1,4 @@
+import ValidationError from "@/exceptions/validationError";
 import axios from "axios";
 
 const callApi = () => {
@@ -14,10 +15,18 @@ const callApi = () => {
 
 	axiosInstance.interceptors.response.use(
 		(res) => {
-            // manage validation
 			return res;
 		},
-		(err) => Promise.reject(err)
+		(err) => {
+			const res = err?.response
+			if(res) {
+				if(res.status === 422) {
+					throw new ValidationError(res.data.errors)
+				}
+			}
+
+			Promise.reject(err)
+		}
 	);
 
     return axiosInstance;
