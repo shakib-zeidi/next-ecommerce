@@ -5,8 +5,8 @@ import { LoginFormValuesInterface } from "@/contracts/auth";
 const InnerLoginForm = (props: FormikProps<LoginFormValuesInterface>) => {
 	return (
 		<Form className="space-y-6">
-			<Input name="email" label="آدرس ایمیل" type="email" />
-			<Input name="password" label="رمز عبور" type="password" />
+			<Input name="email" label="آدرس ایمیل" type="email" dir="ltr" />
+			<Input name="password" label="رمز عبور" type="password" dir="ltr" />
 			<div>
 				<button
 					type="submit"

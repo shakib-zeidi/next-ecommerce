@@ -6,8 +6,8 @@ const InnerRegisterForm = (props: FormikProps<RegisterFormValuesInterface>) => {
 	return (
 		<Form className="space-y-6">
 			<Input name="name" label="نام و نام خانوادگی" />
-			<Input name="email" label="آدرس ایمیل" type="email" />
-			<Input name="password" label="رمز عبور" type="password" />
+			<Input name="email" label="آدرس ایمیل" type="email" dir="ltr" />
+			<Input name="password" label="رمز عبور" type="password" dir="ltr" />
 			<div>
 				<button
 					type="submit"
