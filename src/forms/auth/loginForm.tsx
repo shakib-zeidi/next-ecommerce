@@ -6,8 +6,8 @@ import { withFormik } from "formik";
 import * as yup from "yup";
 
 const loginFormValidationSchema = yup.object().shape({
-    email: yup.string().required('این فیلد الزامی است').email('فرمت وارد شده اشتباه می باشد'),
-    password: yup.string().required('این فیلد الزامی است').min(8, 'رمز عبور نباید از 8 کاراکتر کمتر باشد'),
+    email: yup.string().required('لطفا ایمیل را وارد کنید').email('ایمیل صحیح نیست'),
+    password: yup.string().required('لطفا رمز عبور را وارد کنید'),
 });
 
 interface LoginFormProps {

@@ -8,9 +8,9 @@ import { useRouter } from "next/navigation";
 import * as yup from "yup";
 
 const registerFormValidationSchema = yup.object().shape({
-    name: yup.string().required('این فیلد الزامی است').min(3, 'نام باید حداقل 3 کاراکتر باشد'),
-    email: yup.string().required('این فیلد الزامی است').email('فرمت وارد شده اشتباه می باشد'),
-    password: yup.string().required('این فیلد الزامی است').min(8, 'رمز عبور باید حداقل 8 کاراکتر باشد'),
+    name: yup.string().required('لطفا نام را وارد کنید').min(3, 'نام باید حداقل 3 کاراکتر باشد'),
+    email: yup.string().required('لطفا ایمیل را وارد کنید').email('ایمیل صحیح نیست'),
+    password: yup.string().required('لطفا رمز عبور را وارد کنید').min(8, 'رمز عبور باید حداقل 8 کاراکتر باشد'),
 });
 
 interface RegisterFormProps {}
