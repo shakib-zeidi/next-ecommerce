@@ -1,6 +1,6 @@
 "use client";
 
-import LoginForm from "@/ui/forms/auth/loginForm";
+import LoginForm from "../../../forms/auth/loginForm";
 import { NextPage } from "next";
 import { useCookies } from "react-cookie";
 

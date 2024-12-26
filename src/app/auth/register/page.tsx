@@ -1,6 +1,6 @@
 "use client";
 
-import RegisterForm from "@/ui/forms/auth/registerForm";
+import RegisterForm from "../../../forms/auth/registerForm";
 import { NextPage } from "next";
 
 const RegisterPage: NextPage = () => {
