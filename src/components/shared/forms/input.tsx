@@ -3,29 +3,32 @@ import { FC } from "react";
 
 interface InputProps {
 	name: string;
-    label: string;
+	label: string;
 	type?: string;
 	dir?: string;
+	placeholder?: string;
 	inputClassName?: string;
-    labelClassName?: string;
+	labelClassName?: string;
 	errorClassName?: string;
 }
 
 const Input: FC<InputProps> = ({
 	name,
-    label,
+	label,
 	type = "text",
 	dir,
+	placeholder,
 	inputClassName,
-    labelClassName,
+	labelClassName,
 	errorClassName,
 }) => {
 	return (
-		<div>
+		<>
 			<label
 				htmlFor={name}
-				className={`block text-sm/6 font-medium text-gray-900 ${labelClassName ?? ""}`}
-			>
+				className={`block tracking-wide text-gray-600 text-sm md:text-base mb-5 ${
+					labelClassName ?? ""
+				}`}>
 				{label}
 			</label>
 			<Field
@@ -33,7 +36,8 @@ const Input: FC<InputProps> = ({
 				name={name}
 				type={type}
 				dir={dir}
-				className={`mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 ${
+				placeholder={placeholder}
+				className={`appearance-none block w-full text-gray-500 border border-gray-300 rounded py-3 px-4 mb-3 focus:outline-indigo-500 focus:bg-white ${
 					inputClassName ?? ""
 				}`}
 			/>
@@ -42,7 +46,7 @@ const Input: FC<InputProps> = ({
 				className={`text-red-500 text-sm ${errorClassName ?? ""}`}
 				component="div"
 			/>
-		</div>
+		</>
 	);
 };
 

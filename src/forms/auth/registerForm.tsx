@@ -2,14 +2,15 @@
 
 import InnerRegisterForm from "@/components/auth/innerRegsiterForm";
 import { RegisterFormValuesInterface } from "@/contracts/auth";
-import callApi from "@/helpers/callApi";
+// import callApi from "@/helpers/callApi";
 import { withFormik } from "formik";
 import { useRouter } from "next/navigation";
 import * as yup from "yup";
 
 const registerFormValidationSchema = yup.object().shape({
-    name: yup.string().required('لطفا نام را وارد کنید').min(3, 'نام باید حداقل 3 کاراکتر باشد'),
+    name: yup.string().required('لطفا نام فروشگاه خود را وارد کنید').min(3, 'نام باید حداقل 3 کاراکتر باشد'),
     email: yup.string().required('لطفا ایمیل را وارد کنید').email('ایمیل صحیح نیست'),
+    phone: yup.string().required('لطفا شماره تلفن خود را وارد کنید'),
     password: yup.string().required('لطفا رمز عبور را وارد کنید').min(8, 'رمز عبور باید حداقل 8 کاراکتر باشد'),
 });
 
@@ -19,15 +20,17 @@ const RegisterForm = withFormik<RegisterFormProps & { router: any }, RegisterFor
     mapPropsToValues: (props) => ({
         name: '',
         email: '',
+        phone: '',
         password: '',
     }),
     validationSchema: registerFormValidationSchema,
     handleSubmit: async (values, { props }) => {
-        const res = await callApi().post('/auth/register', values);
+        console.log(values);
+        // const res = await callApi().post('/auth/register', values);
 
-        if (res.status === 201) {
-            props.router.push('/auth/login');
-        }
+        // if (res.status === 201) {
+        //     props.router.push('/auth/login');
+        // }
     },
 })(InnerRegisterForm);
 
