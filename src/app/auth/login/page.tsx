@@ -16,12 +16,15 @@ const LoginPage: NextPage = () => {
 						src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
 						className="mx-auto h-10 w-auto"
 					/>
-					<h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-						ورود به حساب کاربری
+					<h2 className="mt-10 mb-3 text-center text-xl/9 md:text-2xl/9 font-bold tracking-tight text-gray-900">
+						ورود به مدیریت فروشگاه
 					</h2>
+					<p className="text-gray-500 text-sm md:text-base text-center">
+						اطلاعات فروشگاه را برای ورود به صفحه مدیریت وارد کنید
+					</p>
 				</div>
-
-				<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+				{/* w-full max-w-xl container mx-auto mt-10 px-4 sm:px-6 */}
+				<div className="w-full max-w-xl container mx-auto mt-10 px-4 sm:px-6">
 					<LoginForm setCookie={setCookie} />
 				</div>
 			</div>

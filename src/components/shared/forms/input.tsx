@@ -26,7 +26,7 @@ const Input: FC<InputProps> = ({
 		<>
 			<label
 				htmlFor={name}
-				className={`block tracking-wide text-gray-600 text-sm md:text-base mb-5 ${
+				className={`block tracking-wide text-gray-700 font-bold text-sm md:text-base mb-5 ${
 					labelClassName ?? ""
 				}`}>
 				{label}
@@ -37,7 +37,7 @@ const Input: FC<InputProps> = ({
 				type={type}
 				dir={dir}
 				placeholder={placeholder}
-				className={`appearance-none block w-full text-gray-500 border border-gray-300 rounded py-3 px-4 mb-3 focus:outline-indigo-500 focus:bg-white ${
+				className={`appearance-none block w-full text-gray-600 border border-gray-300 rounded py-3 px-4 mb-3 focus:outline-indigo-500 focus:bg-white ${
 					inputClassName ?? ""
 				}`}
 			/>
