@@ -5,7 +5,7 @@ import { LoginFormValuesInterface } from "@/contracts/auth";
 const InnerLoginForm = (props: FormikProps<LoginFormValuesInterface>) => {
     return (
         <Form>
-            <div className="flex flex-wrap mb-6">
+            <div className="flex flex-wrap mb-4">
                 <div className="w-full">
                     <Input
                         name="name"
@@ -15,12 +15,12 @@ const InnerLoginForm = (props: FormikProps<LoginFormValuesInterface>) => {
                     />
                 </div>
             </div>
-            <div className="flex flex-wrap mb-6">
+            <div className="flex flex-wrap mb-4">
                 <div className="w-full">
                     <Input name="email" label="ایمیل" type="email" dir="ltr" />
                 </div>
             </div>
-            <div className="flex flex-wrap mb-6">
+            <div className="flex flex-wrap mb-4">
                 <div className="w-full">
                     <Input
                         name="password"
@@ -39,7 +39,7 @@ const InnerLoginForm = (props: FormikProps<LoginFormValuesInterface>) => {
                 </button>
                 <button
                     type="submit"
-                    className="sm:p-5 flex items-center w-full justify-center rounded-md py-4 text-sm/6 font-semibold text-indigo-500 shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="sm:p-5 border flex items-center w-full justify-center rounded-md py-4 text-sm/6 font-semibold text-indigo-500 shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                     بازیابی رمز عبور
                 </button>
